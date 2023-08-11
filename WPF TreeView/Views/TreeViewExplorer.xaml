@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="WPF_TreeView.Views.TreeViewExplorer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:model="clr-namespace:WPF_TreeView.Models"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+              xmlns:converters="clr-namespace:WPF_TreeView.Converters"
+             x:Name="TreeViewExplorerControl">
+    <UserControl.Resources>
+        <converters:TreeNodeTypeToIconSourceConverters x:Key="TreeNodeTypeToIconSourceConverter"/>
+    </UserControl.Resources>
+    
+    <TreeView ItemsSource="{Binding TreeNodes, ElementName=TreeViewExplorerControl}">
+        <TreeView.Resources>
+            <HierarchicalDataTemplate DataType="{x:Type model:TreeNode}" ItemsSource="{Binding Children}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{Binding TreeNodeType, Converter={StaticResource TreeNodeTypeToIconSourceConverter}}" Width="14"/>
+                    <TextBlock Text="{Binding Name}" Margin="5,0,0,0"/>
+                </StackPanel>
+            </HierarchicalDataTemplate>
+        </TreeView.Resources>
+    </TreeView>
+</UserControl>
