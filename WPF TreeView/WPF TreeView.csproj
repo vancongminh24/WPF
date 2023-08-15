@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Converters\Converters.cs" />
     <Compile Include="Enums\Enums.cs" />
+    <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="Views\TreeViewExplorer.xaml.cs">
       <DependentUpon>TreeViewExplorer.xaml</DependentUpon>
     </Compile>

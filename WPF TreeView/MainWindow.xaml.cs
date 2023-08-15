@@ -28,8 +28,20 @@ namespace WPF_TreeView
                 TreeNodeType = TreeNodeType.Folder,
                 Children = new List<TreeNode>()
                     {
-                        new TreeNode(){Name = "Hi1-1", TreeNodeType = TreeNodeType.Tick},
-                        new TreeNode(){Name = "Hi1-2"}
+                    new TreeNode(){Name = "Hi1-1"},
+
+                    new TreeNode(){
+                        Name = "Hi1-2",
+                        TreeNodeType = TreeNodeType.Tick,
+                        Children = new List<TreeNode>()
+                        {
+                            new TreeNode()
+                            {
+                                Name = "Hi1-2-1"
+                            }
+                        }
+                    },
+                    new TreeNode(){Name = "Hi1-3"}
                     }
             });
             TreeNodes.Add(new TreeNode() { Name = "Hi2" });
